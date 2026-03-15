@@ -1,0 +1,1020 @@
+ @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@300;400;700&display=swap');
+
+:root {
+  --navy: #05113B;
+  --navy-2: #658598;
+  --light-blue: #A8C7E4;
+  --card-blue: #658598;
+  --cream: #FFFDE9;
+  --yellow: #F5D424;
+  --text-dark: #05113B;
+  --border: #0b1533;
+  --white: #FFFDE9;
+  --shadow: 0 4px 0 rgba(4, 26, 93, 0.2);
+  --radius: 12px;
+  --max-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Comic Neue", cursive;
+  color: var(--text-dark);
+  background: var(--light-blue);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.container {
+  width: min(var(--max-width), calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 1000;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+.display-title,
+.section-title,
+.card-title,
+.faq-question,
+.footer-heading,
+.hero-title {
+  font-family: "Bangers", cursive;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.site-header {
+  background: var(--navy);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.75rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+  flex-wrap: nowrap;
+}
+
+.main-nav__link {
+  position: relative;
+  display: inline-block;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.95;
+  padding: 0.2rem 0;
+  transition: opacity 0.2s ease;
+}
+
+.main-nav__link:hover,
+.main-nav__link:focus-visible {
+  opacity: 1;
+}
+
+.main-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 2px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.main-nav__link:hover::after,
+.main-nav__link:focus-visible::after,
+.main-nav__link.is-active::after {
+  transform: scaleX(1);
+}
+.hero {
+  background-image:
+    linear-gradient(rgba(5, 17, 59, 0.2), rgba(5, 17, 59, 0.2)),
+    url("images/hero-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  min-height: 620px;
+  padding: 3rem 0 2.5rem;
+}
+
+.hero__image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  min-width: 0;
+}
+
+.hero__phone-image {
+  max-height: 520px;
+  width: min(100%, 420px);
+  object-fit: contain;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.25));
+}
+
+.hero__content {
+  max-width: 550px;
+  min-width: 0;
+  transform: translateX(40px);
+}
+
+.hero-title {
+  font-size: clamp(2.3rem, 5vw, 4.1rem);
+  margin-bottom: 1rem;
+}
+
+.hero__lead {
+  font-size: 1.08rem;
+  max-width: 48ch;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 0.8rem;
+}
+
+.hero__description {
+  max-width: 52ch;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.97rem;
+  margin-bottom: 1.6rem;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0.85rem 1.35rem;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  font-weight: 700;
+  transition: transform 0.15s ease;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: var(--yellow);
+  color: var(--navy);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section--light {
+  background: var(--light-blue);
+}
+
+.section--dark {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  margin-bottom: 0.8rem;
+  color: var(--navy);
+}
+
+.section--dark .section-title {
+  color: var(--white);
+}
+
+.section-subtitle {
+  font-size: 1.08rem;
+  margin-bottom: 2rem;
+  max-width: 42rem;
+}
+
+.how-it-works__layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.how-it-works__phone img {
+  max-height: 500px;
+  margin-inline: auto;
+}
+
+.info-panel {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.info-panel__title {
+  font-family: "Bangers", cursive;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--navy);
+  font-size: 1.85rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.info-list {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-list strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--navy);
+}
+
+.store-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.store-badge {
+  background: var(--yellow);
+  color: var(--navy);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  min-width: 190px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.features-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.feature-card {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+  min-height: 250px;
+}
+
+.feature-card__icon {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: #b8d2ea;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+}
+
+.feature-card__icon img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.feature-card__title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.65rem;
+}
+
+.feature-card__text {
+  font-size: 0.95rem;
+}
+
+.feature-card--image {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.feature-card--image img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  object-fit: cover;
+}
+
+.feature-card__overlay-btn {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+}
+
+.faq-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.faq-item {
+  background: var(--cream);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.faq-item[open] {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.faq-question {
+  list-style: none;
+  padding: 1.15rem 1.25rem;
+  font-size: 1.35rem;
+  color: var(--navy);
+  background: var(--cream);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: "+";
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #8ba5b8;
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-family: "Comic Neue", cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.faq-item[open] .faq-question::after {
+  content: "–";
+}
+
+.faq-answer {
+  padding: 0 1.25rem 1.25rem;
+  color: #223456;
+}
+
+.faq-cta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.mini-panel {
+  background: #9eb6c6;
+  color: var(--navy);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow);
+}
+
+.mini-panel__title {
+  font-family: "Bangers", cursive;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mini-panel p {
+  margin-bottom: 1rem;
+  max-width: 30ch;
+}
+
+.reviews-header {
+  margin-bottom: 2rem;
+}
+
+.reviews-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 1rem;
+  color: #1b2f55;
+}
+
+.reviews-meta__star {
+  color: #16a34a;
+  font-size: 1.5rem;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.review-card,
+.review-card--quote {
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  padding: 1.2rem;
+  background: var(--cream);
+  box-shadow: var(--shadow);
+}
+
+.review-card--quote {
+  background: #91aabd;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-card__author {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.85rem;
+}
+
+.review-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-card__name {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.review-card__date {
+  font-size: 0.82rem;
+  color: #566a88;
+}
+
+.review-card__text {
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
+.review-card__stars {
+  color: #16a34a;
+  letter-spacing: 0.06em;
+  font-size: 1rem;
+}
+
+.review-card__big-quote {
+  font-family: "Bangers", cursive;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 2rem;
+  line-height: 1;
+  max-width: 8ch;
+}
+
+.final-cta {
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 7rem;
+  text-align: center;
+  background: var(--light-blue);
+}
+
+.final-cta::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 170px;
+  background: var(--navy);
+  clip-path: polygon(
+    0% 30%, 8% 55%, 18% 20%, 30% 65%, 42% 30%, 54% 70%, 68% 18%, 80% 58%, 91% 26%, 100% 45%,
+    100% 100%, 0% 100%
+  );
+  z-index: 0;
+}
+
+.final-cta__content {
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta__title {
+  font-family: "Bangers", cursive;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--navy);
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 0.95;
+  margin-bottom: 1rem;
+}
+
+.final-cta__text {
+  max-width: 42ch;
+  margin: 0 auto 1.5rem;
+}
+
+.footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: 2rem 0 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.18rem;
+}
+
+.footer-copy {
+  margin-top: 1.75rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ---------- LARGE TABLETS ---------- */
+@media (max-width: 1100px) {
+  .hero__inner {
+    grid-template-columns: 1fr 1fr;
+    min-height: unset;
+    padding: 2.5rem 0;
+  }
+
+  .hero__content {
+    transform: translateX(0);
+    max-width: 100%;
+  }
+
+  .hero__phone-image {
+    max-height: 440px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- TABLETS ---------- */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .main-nav__list {
+    justify-content: center;
+    gap: 0.9rem 1.1rem;
+  }
+
+  .hero {
+    background-position: center;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.75rem;
+    padding: 2rem 0 2.5rem;
+  }
+
+  .hero__content {
+    order: 1;
+    transform: none;
+    margin-inline: auto;
+    max-width: 42rem;
+  }
+
+  .hero__image-wrap {
+    order: 2;
+    justify-content: center;
+  }
+
+  .hero-title {
+    margin-inline: auto;
+  }
+
+  .hero__lead,
+  .hero__description {
+    margin-inline: auto;
+  }
+
+  .button-row {
+    justify-content: center;
+  }
+
+  .how-it-works__layout,
+  .faq-cta-row {
+    grid-template-columns: 1fr;
+  }
+
+  .how-it-works__phone {
+    order: 1;
+  }
+
+  .info-panel {
+    order: 2;
+  }
+}
+
+/* ---------- PHONES ---------- */
+@media (max-width: 720px) {
+  .container {
+    width: min(var(--max-width), calc(100% - 1.25rem));
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .header-inner {
+    padding: 0.9rem 0;
+  }
+
+  .brand img {
+    height: 48px;
+  }
+
+  .main-nav__list {
+    gap: 0.7rem 0.9rem;
+  }
+
+  .main-nav__link {
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    background-image:
+      linear-gradient(rgba(5, 17, 59, 0.45), rgba(5, 17, 59, 0.45)),
+      url("images/hero-background.png");
+    background-position: center;
+  }
+
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    min-height: auto;
+    padding: 2rem 0 2.75rem;
+  }
+
+  .hero__content {
+    order: 1;
+    max-width: 100%;
+    padding-inline: 0.25rem;
+    transform: none;
+  }
+
+  .hero__image-wrap {
+    order: 2;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    max-width: 8ch;
+    margin: 0 auto 1rem;
+  }
+
+  .hero__lead {
+    font-size: 1rem;
+    max-width: 30ch;
+    margin: 0 auto 1rem;
+  }
+
+  .hero__description {
+    font-size: 0.95rem;
+    max-width: 32ch;
+    margin: 0 auto 1.25rem;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .hero__phone-image {
+    width: min(72vw, 260px);
+    max-height: 320px;
+    margin-inline: auto;
+  }
+
+  .button-row,
+  .store-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .btn,
+  .store-badge {
+    width: 100%;
+  }
+
+  .section {
+    padding: 3.8rem 0;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 9vw, 2.7rem);
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .info-panel {
+    padding: 1.2rem;
+  }
+
+  .info-panel__title,
+  .mini-panel__title,
+  .review-card__big-quote,
+  .final-cta__title {
+    letter-spacing: 0.02em;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    min-height: auto;
+  }
+
+  .feature-card__icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .feature-card__icon img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .faq-question {
+    font-size: 1.05rem;
+    padding: 1rem 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 1rem 1rem;
+  }
+
+  .mini-panel {
+    padding: 1.15rem;
+  }
+
+  .review-card,
+  .review-card--quote {
+    padding: 1rem;
+  }
+
+  .final-cta {
+    padding-top: 3rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .final-cta::after {
+    height: 120px;
+  }
+
+  .final-cta__text {
+    max-width: 30ch;
+  }
+
+  .footer {
+    padding: 1.8rem 0 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-copy {
+    margin-top: 1.4rem;
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+  .container {
+    width: min(var(--max-width), calc(100% - 1rem));
+  }
+
+  .brand img {
+    height: 42px;
+  }
+
+  .main-nav__list {
+    gap: 0.6rem 0.75rem;
+  }
+
+  .main-nav__link {
+    font-size: 0.85rem;
+  }
+
+  .hero__inner {
+    padding: 1.5rem 0 2.3rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 11vw, 2.4rem);
+    max-width: 7.5ch;
+  }
+
+  .hero__lead {
+    font-size: 0.96rem;
+    max-width: 28ch;
+  }
+
+  .hero__description {
+    font-size: 0.9rem;
+    max-width: 29ch;
+  }
+
+  .hero__phone-image {
+    width: min(76vw, 220px);
+    max-height: 280px;
+  }
+
+  .btn,
+  .store-badge {
+    min-height: 48px;
+    padding: 0.8rem 1rem;
+  }
+
+  .section {
+    padding: 3.2rem 0;
+  }
+
+  .feature-card,
+  .info-panel,
+  .mini-panel,
+  .review-card,
+  .review-card--quote {
+    padding: 0.95rem;
+  }
+
+  .feature-card__title {
+    font-size: 1.05rem;
+  }
+
+  .feature-card__text,
+  .review-card__text,
+  .footer-links,
+  .footer-copy {
+    font-size: 0.9rem;
+  }
+
+  .faq-question::after {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  .final-cta::after {
+    height: 95px;
+  }
+}
