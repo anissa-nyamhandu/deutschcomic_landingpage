@@ -21,26 +21,30 @@
   />
 
  <link rel="stylesheet" href="styles.css">
+ <script src="script.js" defer></script>
 
 </head>
 <body id="top">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header class="site-header" id="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="DeutschComic home"><img src="images/logo.png" alt="deutschcomic logo"></a>
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="DeutschComic home">
+      <img src="images/logo.png" alt="deutschcomic logo">
+    </a>
 
-      <nav class="main-nav" aria-label="Primary navigation">
-        <ul class="main-nav__list">
-          <li><a class="main-nav__link" href="#top">Home</a></li>
-          <li><a class="main-nav__link" href="#product">Product</a></li>
-          <li><a class="main-nav__link" href="#how-it-works">How</a></li>
-          <li><a class="main-nav__link" href="#about">About</a></li>
-          <li><a class="main-nav__link" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <nav class="main-nav" id="primary-navigation" aria-label="Primary navigation">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link" href="#top">Home</a></li>
+        <li><a class="main-nav__link" href="#product">Product</a></li>
+        <li><a class="main-nav__link" href="#how-it-works">How</a></li>
+        <li><a class="main-nav__link" href="#about">About</a></li>
+        <li><a class="main-nav__link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
   <main id="main-content">
     <section class="hero" id="product" aria-labelledby="hero-title">
@@ -79,11 +83,11 @@
 
         <div class="how-it-works__layout">
           <div class="how-it-works__phone">
-            <img
-              src="images/app-phone.png"
-              alt="DeutschComic mobile app screen preview"
-            />
-          </div>
+  <video id="demoVideo" autoplay muted loop playsinline>
+    <source src="DeutschComic_Prototype_video_1.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+</div>
 
           <div class="info-panel">
             <h3 class="info-panel__title">
