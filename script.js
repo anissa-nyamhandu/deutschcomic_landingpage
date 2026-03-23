@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   const header = document.getElementById("site-header");
   const video = document.getElementById("demoVideo");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* -----------------------------------
      2. Reveal on scroll
-  ----------------------------------- */
+ 
   if (!prefersReducedMotion) {
     const revealElements = [
       ...document.querySelectorAll(
@@ -56,10 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
       )
       .forEach((el) => el.classList.add("is-visible"));
   }
-
+ ----------------------------------- */
   /* -----------------------------------
      3. Header hide/show
-  ----------------------------------- */
+ 
   if (header) {
     let lastScrollY = window.scrollY;
     let ticking = false;
@@ -90,10 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
       { passive: true }
     );
   }
-
+ ----------------------------------- */
   /* -----------------------------------
      4. Smooth scroll for anchor links
-  ----------------------------------- */
+  
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
       const targetId = link.getAttribute("href");
@@ -112,10 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
-
+----------------------------------- */
   /* -----------------------------------
      5. FAQ single-open behavior
-  ----------------------------------- */
+  
   const faqItems = document.querySelectorAll(".faq-item");
 
   faqItems.forEach((item) => {
@@ -127,10 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
+----------------------------------- */
   /* -----------------------------------
      6. Desktop-only magnetic buttons
-  ----------------------------------- */
+  
   if (desktopPointer && !prefersReducedMotion && window.innerWidth > 900) {
     const magneticItems = document.querySelectorAll(".btn, .store-badge");
 
@@ -148,10 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
+----------------------------------- */
   /* -----------------------------------
      7. Desktop-only phone tilt
-  ----------------------------------- */
+ 
   if (desktopPointer && !prefersReducedMotion && window.innerWidth > 900) {
     const phone = document.querySelector(".how-it-works__phone");
 
@@ -173,4 +173,5 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
-});
+;
+ ----------------------------------- */
