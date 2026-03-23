@@ -39,8 +39,10 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+  <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
+
+<script src="script.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -208,7 +210,12 @@
 
         <div class="how-it-works__layout">
           <figure class="how-it-works__phone">
-            <video id="demoVideo" autoplay muted loop playsinline preload="metadata" poster="images/video-poster.jpg" aria-label="DeutschComic app demonstration video">
+            <video   id="demoVideo"
+  preload="none"
+  poster="thumbnail.webp"
+  muted
+  playsinline
+id="demoVideo" autoplay muted loop playsinline preload="metadata" poster="images/video-poster.jpg" aria-label="DeutschComic app demonstration video">
               <source src="DeutschComic_Prototype_video_1.webm" type="video/webm" />
               Your browser does not support the video tag.
             </video>
